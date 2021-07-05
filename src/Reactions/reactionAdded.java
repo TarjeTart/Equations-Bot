@@ -22,42 +22,52 @@ public class reactionAdded {
 		//delete current message
 		current.getMessage().delete().queue();
 		//send new message
-		Map<String,Embeds> map = new HashMap<String,Embeds>();
-		switch(current.getCurrent()) {
-			case MAIN:
-				map = Driver.mainEmotes;
-				break;
-			case DERIVATIVES:
-				break;
-			case EM:
-				break;
-			case GEOMETRY:
-				break;
-			case INTEGRALS:
-				break;
-			case MATH:
-				break;
-			case MECHANICS:
-				break;
-			case MODERN:
-				break;
-			case PHYSICS:
-				break;
-			case STATS:
-				break;
-			case THERMAL:
-				break;
-			case WAVESOPTICS:
-				break;
-			default:
-				break;
+		Embeds nextEmbed = null;
+		System.out.println("current: " + current.getCurrent());
+		System.out.println("prev: " + current.getPrev());
+		if(emote.getId().equals(Driver.backArrow)) {
+			nextEmbed = current.getPrev();
+		}else {
+			Map<String,Embeds> map = new HashMap<String,Embeds>();
+			switch(current.getCurrent()) {
+				case MAIN:
+					map = Driver.mainEmotes;
+					break;
+				case DERIVATIVES:
+					break;
+				case EM:
+					break;
+				case GEOMETRY:
+					break;
+				case INTEGRALS:
+					break;
+				case MATH:
+					break;
+				case MECHANICS:
+					map = Driver.mechanicsEmotes;
+					break;
+				case MODERN:
+					break;
+				case PHYSICS:
+					map = Driver.physicsEmotes;
+					break;
+				case STATS:
+					break;
+				case THERMAL:
+					break;
+				case WAVESOPTICS:
+					break;
+				default:
+					break;
+			}
+			nextEmbed = map.get(emote.getId());
 		}
-		Embeds nextEmbed = map.get(emote.getId());
 		Message sentMessage =
 				current.getChannel().sendMessage(Embeds.build(nextEmbed).build()).complete();
 		//save sent message
-		Driver.current = 
-				new MessageSave(current.getCurrent(),nextEmbed,sentMessage,current.getUser(),current.getChannel());
+		Driver.current.setPrev(current.getCurrent());
+		Driver.current.setCurrent(nextEmbed);
+		Driver.current.setMessage(sentMessage);
 		//add reactions
 		String[] arr = null;
 		switch(nextEmbed) {
@@ -75,6 +85,7 @@ public class reactionAdded {
 			case MATH:
 				break;
 			case MECHANICS:
+				arr = Driver.mechanicsEmotesArr;
 				break;
 			case MODERN:
 				break;

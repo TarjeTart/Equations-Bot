@@ -21,7 +21,13 @@ public enum Embeds {
 	GEOMETRY,
 	STATS,
 	DERIVATIVES,
-	INTEGRALS;
+	INTEGRALS,
+	KINEMATICS,
+	CENTRIPETALACCELERATION,
+	IMPULSE,
+	WORK,
+	POWER,
+	BERNOULLI;
 	
 	public static EmbedBuilder build(Embeds embed) {
 		switch(embed){
@@ -29,6 +35,8 @@ public enum Embeds {
 				return buildMain();
 			case PHYSICS:
 				return buildPhysics();
+			case MECHANICS:
+				return buildMechanics();
 			default:
 				return null;
 		}
@@ -36,7 +44,7 @@ public enum Embeds {
 	
 	private static EmbedBuilder buildMain() {
 		EmbedBuilder eb = new EmbedBuilder();
-		eb.setTitle("Fields").setColor(Color.GREEN).setThumbnail(Driver.botAvatarUrl);
+		eb.setTitle("Fields:").setColor(Color.BLACK).setThumbnail(Driver.botAvatarUrl);
 		eb.addField("Physics", "React with P", false);
 		eb.addField("Mathematics", "React with M", false);
 		return eb;
@@ -44,12 +52,24 @@ public enum Embeds {
 	
 	private static EmbedBuilder buildPhysics(){
 		EmbedBuilder eb = new EmbedBuilder();
-		eb.setTitle("Subject").setColor(Color.BLACK).setThumbnail(Driver.botAvatarUrl);
+		eb.setTitle("Physics:").setColor(Color.GREEN).setThumbnail(Driver.botAvatarUrl);
 		eb.addField("Mechanics", "React with 1", false);
 		eb.addField("Thermal", "React with 2", false);
 		eb.addField("Waves and Optics", "React with 3", false);
 		eb.addField("Electricity & Magnetism", "React with 4", false);
 		eb.addField("Modern", "React with 5", false);
+		return eb;
+	}
+	
+	private static EmbedBuilder buildMechanics() {
+		EmbedBuilder eb = new EmbedBuilder();
+		eb.setTitle("Mechanics:").setColor(Color.BLACK).setThumbnail(Driver.botAvatarUrl);
+		eb.addField("Kinematics", "React with 1", false);
+		eb.addField("Centripetal Acceleration", "React with 2", false);
+		eb.addField("Impulse", "React with 3", false);
+		eb.addField("Work", "React with 4", false);
+		eb.addField("Power", "React with 5", false);
+		eb.addField("Bernoulli's Equation", "React with 6", false);
 		return eb;
 	}
 	

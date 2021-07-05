@@ -29,10 +29,13 @@ public class Driver extends ListenerAdapter{
 	public static String version = "0.1.0";
 	public static String botAvatarUrl;
 	public static MessageSave current;
+	public static String backArrow = "861667379603963924";
 	public static Map<String,Embeds> mainEmotes = new HashMap<String,Embeds>();
 	public static String[] mainEmotesArr;
 	public static Map<String,Embeds> physicsEmotes = new HashMap<String,Embeds>();
 	public static String[] physicsEmotesArr;
+	public static Map<String,Embeds> mechanicsEmotes = new HashMap<String,Embeds>();
+	public static String[] mechanicsEmotesArr;
 
 	public static void main(String[] args) {
 
@@ -42,7 +45,8 @@ public class Driver extends ListenerAdapter{
 			return;
 		}
 		
-		mainEmotesArr = mainEmotes();physicsEmotesArr = physicsEmotes();
+		mainEmotesArr = mainEmotes(); physicsEmotesArr = physicsEmotes();
+		mechanicsEmotesArr = mechanicsEmotes();
 		
 		//bot maker class
 		jdaMaker = new JdaMaker(token,prefix.toString() + "help");
@@ -62,7 +66,6 @@ public class Driver extends ListenerAdapter{
 	public void onMessageReactionAdd(MessageReactionAddEvent event) {
 		if(event.getUser().isBot())
 			return;
-		System.out.println("triggered");
 		new reactionAdded(event);
 	}
 	
@@ -96,8 +99,20 @@ public class Driver extends ListenerAdapter{
 		physicsEmotes.put("716467864584060960",Embeds.WAVESOPTICS);//3
 		physicsEmotes.put("716467958838460437",Embeds.EM);//4
 		physicsEmotes.put("716468491359617104",Embeds.MODERN);//5
-		String[] arr = {"716468511806849067","716467615056265236","716467864584060960",
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
                 "716467958838460437","716468491359617104"};
+		return arr;
+	}
+	
+	private static String[] mechanicsEmotes() {
+		mechanicsEmotes.put("716468511806849067",Embeds.KINEMATICS);//1
+		mechanicsEmotes.put("716467615056265236",Embeds.CENTRIPETALACCELERATION);//2
+		mechanicsEmotes.put("716467864584060960",Embeds.IMPULSE);//3
+		mechanicsEmotes.put("716467958838460437",Embeds.WORK);//4
+		mechanicsEmotes.put("716468491359617104",Embeds.POWER);//5
+		mechanicsEmotes.put("861671535433089055",Embeds.BERNOULLI);//6
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437","716468491359617104","861671535433089055"};
 		return arr;
 	}
 
