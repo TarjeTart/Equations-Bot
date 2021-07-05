@@ -44,7 +44,7 @@ public class GuildSearchCommand implements Interfaces.Command{
 
 	@Override
 	public boolean check() {
-		p = Pattern.compile(Driver.prefix.toString() + "search",Pattern.CASE_INSENSITIVE);
+		p = Pattern.compile(Driver.prefix.toString() + "explore",Pattern.CASE_INSENSITIVE);
 		m = p.matcher(msg);
 		return m.find();
 	}
@@ -53,12 +53,12 @@ public class GuildSearchCommand implements Interfaces.Command{
 	
 	@Override
 	public String getName() {
-		return Driver.prefix.toString() + "search";
+		return Driver.prefix.toString() + "explore";
 	}
 
 	@Override
 	public String getDescription() {
-		return "used to begin searching for equations";
+		return "used to explore all equations stored in bot";
 	}
 
 	@Override

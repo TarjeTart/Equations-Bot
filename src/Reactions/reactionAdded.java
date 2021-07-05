@@ -23,8 +23,6 @@ public class reactionAdded {
 		current.getMessage().delete().queue();
 		//send new message
 		Embeds nextEmbed = null;
-		System.out.println("current: " + current.getCurrent());
-		System.out.println("prev: " + current.getPrev());
 		if(emote.getId().equals(Driver.backArrow)) {
 			nextEmbed = current.getPrev();
 		}else {
@@ -36,6 +34,7 @@ public class reactionAdded {
 				case DERIVATIVES:
 					break;
 				case EM:
+					map = Driver.emEmotes;
 					break;
 				case GEOMETRY:
 					break;
@@ -47,6 +46,7 @@ public class reactionAdded {
 					map = Driver.mechanicsEmotes;
 					break;
 				case MODERN:
+					map = Driver.modernEmotes;
 					break;
 				case PHYSICS:
 					map = Driver.physicsEmotes;
@@ -54,8 +54,10 @@ public class reactionAdded {
 				case STATS:
 					break;
 				case THERMAL:
+					map = Driver.thermalEmotes;
 					break;
 				case WAVESOPTICS:
+					map = Driver.wavesEmotes;
 					break;
 				default:
 					break;
@@ -77,6 +79,7 @@ public class reactionAdded {
 			case DERIVATIVES:
 				break;
 			case EM:
+				arr = Driver.emEmotesArr;
 				break;
 			case GEOMETRY:
 				break;
@@ -88,6 +91,7 @@ public class reactionAdded {
 				arr = Driver.mechanicsEmotesArr;
 				break;
 			case MODERN:
+				arr = Driver.modernEmotesArr;
 				break;
 			case PHYSICS:
 				arr = Driver.physicsEmotesArr;
@@ -95,8 +99,10 @@ public class reactionAdded {
 			case STATS:
 				break;
 			case THERMAL:
+				arr = Driver.thermalEmotesArr;
 				break;
 			case WAVESOPTICS:
+				arr = Driver.wavesEmotesArr;
 				break;
 			default:
 				break;

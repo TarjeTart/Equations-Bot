@@ -36,6 +36,14 @@ public class Driver extends ListenerAdapter{
 	public static String[] physicsEmotesArr;
 	public static Map<String,Embeds> mechanicsEmotes = new HashMap<String,Embeds>();
 	public static String[] mechanicsEmotesArr;
+	public static Map<String,Embeds> thermalEmotes = new HashMap<String,Embeds>();
+	public static String[] thermalEmotesArr;
+	public static Map<String,Embeds> wavesEmotes = new HashMap<String,Embeds>();
+	public static String[] wavesEmotesArr;
+	public static Map<String,Embeds> emEmotes = new HashMap<String,Embeds>();
+	public static String[] emEmotesArr;
+	public static Map<String,Embeds> modernEmotes = new HashMap<String,Embeds>();
+	public static String[] modernEmotesArr;
 
 	public static void main(String[] args) {
 
@@ -46,7 +54,8 @@ public class Driver extends ListenerAdapter{
 		}
 		
 		mainEmotesArr = mainEmotes(); physicsEmotesArr = physicsEmotes();
-		mechanicsEmotesArr = mechanicsEmotes();
+		mechanicsEmotesArr = mechanicsEmotes(); thermalEmotesArr = thermalEmotes();
+		wavesEmotesArr = wavesEmotes(); emEmotesArr = emEmotes(); modernEmotesArr = modernEmotes();
 		
 		//bot maker class
 		jdaMaker = new JdaMaker(token,prefix.toString() + "help");
@@ -115,5 +124,52 @@ public class Driver extends ListenerAdapter{
                 "716467958838460437","716468491359617104","861671535433089055"};
 		return arr;
 	}
+	
+	private static String[] thermalEmotes() {
+		thermalEmotes.put("716468511806849067",Embeds.THERMOFIRST);//1
+		thermalEmotes.put("716467615056265236",Embeds.ENTROPY);//2
+		thermalEmotes.put("716467864584060960",Embeds.THERMOWORK);//3
+		thermalEmotes.put("716467958838460437",Embeds.ENTHALPY);//4
+		thermalEmotes.put("716468491359617104",Embeds.MAXWELLBOLTZMAN);//5
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437","716468491359617104"};
+		return arr;
+	}
 
+	private static String[] wavesEmotes() {
+		wavesEmotes.put("716468511806849067",Embeds.PERIODICWAVES);//1
+		wavesEmotes.put("716467615056265236",Embeds.INTENSITY);//2
+		wavesEmotes.put("716467864584060960",Embeds.INTENSITYLEVEL);//3
+		wavesEmotes.put("716467958838460437",Embeds.INTERFERENCE);//4
+		wavesEmotes.put("716468491359617104",Embeds.SNELL);//5
+		wavesEmotes.put("861671535433089055",Embeds.DOPPLER);//6
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437","716468491359617104","861671535433089055"};
+		return arr;
+	}
+	
+	private static String[] emEmotes() {
+		emEmotes.put("716468511806849067",Embeds.OHMS);//1
+		emEmotes.put("716467615056265236",Embeds.CAPACITANCE);//2
+		emEmotes.put("716467864584060960",Embeds.EPOWER);//3
+		emEmotes.put("716467958838460437",Embeds.RESISTORS);//4
+		emEmotes.put("716468491359617104",Embeds.BIOT);//5
+		emEmotes.put("861671535433089055",Embeds.MAXWELLS);//6
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437","716468491359617104","861671535433089055"};
+		return arr;
+	}
+	
+	private static String[] modernEmotes() {
+		modernEmotes.put("716468511806849067",Embeds.LORENTZ);//1
+		modernEmotes.put("716467615056265236",Embeds.TIMEDILATION);//2
+		modernEmotes.put("716467864584060960",Embeds.LENGTHCONTRACTION);//3
+		modernEmotes.put("716467958838460437",Embeds.PHOTONENERGY);//4
+		modernEmotes.put("716468491359617104",Embeds.SCHROEDINGER);//5
+		modernEmotes.put("861671535433089055",Embeds.UNCERTAINTY);//6
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437","716468491359617104","861671535433089055"};
+		return arr;
+	}
+	
 }
