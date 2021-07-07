@@ -44,6 +44,12 @@ public class Driver extends ListenerAdapter{
 	public static String[] emEmotesArr;
 	public static Map<String,Embeds> modernEmotes = new HashMap<String,Embeds>();
 	public static String[] modernEmotesArr;
+	public static Map<String,Embeds> geometryEmotes = new HashMap<String,Embeds>();
+	public static String[] geometryEmotesArr;
+	public static Map<String,Embeds> mathEmotes = new HashMap<String,Embeds>();
+	public static String[] mathEmotesArr;
+	public static Map<String,Embeds> statsEmotes = new HashMap<String,Embeds>();
+	public static String[] statsEmotesArr;
 
 	public static void main(String[] args) {
 
@@ -56,6 +62,8 @@ public class Driver extends ListenerAdapter{
 		mainEmotesArr = mainEmotes(); physicsEmotesArr = physicsEmotes();
 		mechanicsEmotesArr = mechanicsEmotes(); thermalEmotesArr = thermalEmotes();
 		wavesEmotesArr = wavesEmotes(); emEmotesArr = emEmotes(); modernEmotesArr = modernEmotes();
+		mathEmotesArr = mathEmotes(); geometryEmotesArr = geometryEmotes();
+		statsEmotesArr = statsEmotes();
 		
 		//bot maker class
 		jdaMaker = new JdaMaker(token,prefix.toString() + "help");
@@ -169,6 +177,32 @@ public class Driver extends ListenerAdapter{
 		modernEmotes.put("861671535433089055",Embeds.UNCERTAINTY);//6
 		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
                 "716467958838460437","716468491359617104","861671535433089055"};
+		return arr;
+	}
+	
+	private static String[] geometryEmotes() {
+		geometryEmotes.put("716468511806849067",Embeds.SPHEREA);//1
+		geometryEmotes.put("716467615056265236",Embeds.SPHEREV);//2
+		geometryEmotes.put("716467864584060960",Embeds.CYLINDERV);//3
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960"};
+		return arr;
+	}
+	
+	private static String[] mathEmotes() {
+		mathEmotes.put("716468511806849067",Embeds.GEOMETRY);//1
+		mathEmotes.put("716467615056265236",Embeds.STATS);//2
+		mathEmotes.put("716467864584060960",Embeds.DERIVATIVES);//3
+		mathEmotes.put("716467958838460437",Embeds.INTEGRALS);//4
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437"};
+		return arr;
+	}
+	
+	private static String[] statsEmotes() {
+		statsEmotes.put("716468511806849067",Embeds.MEAN);//1
+		statsEmotes.put("716467615056265236",Embeds.STDDEV);//2
+		statsEmotes.put("716467864584060960",Embeds.CORRCOE);//3
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960"};
 		return arr;
 	}
 	

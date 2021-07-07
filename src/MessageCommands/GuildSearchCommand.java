@@ -35,7 +35,7 @@ public class GuildSearchCommand implements Interfaces.Command{
 		//build and send main message
 		Message sentMessage = channel.sendMessage(Embeds.build(Embeds.MAIN).build()).complete();
 		//save message
-		Driver.current = new MessageSave(null,Embeds.MAIN,sentMessage,user,channel);
+		Driver.current = new MessageSave(null,Embeds.MAIN,sentMessage,user,channel,false);
 		//add main reactions
 		for(String i : Driver.mainEmotesArr) {
 			sentMessage.addReaction(jda.getGuildById(Driver.botTestingId).getEmoteById(i)).queue();

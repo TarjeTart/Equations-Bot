@@ -56,6 +56,15 @@ public enum Embeds {
 	PHOTONENERGY,
 	SCHROEDINGER,
 	UNCERTAINTY,
+	//geometry
+	SPHEREA,
+	SPHEREV,
+	CYLINDERV,
+	//stats
+	MEAN,
+	STDDEV,
+	CORRCOE,
+	//derivatives
 	;
 	
 	public static EmbedBuilder build(Embeds embed) {
@@ -64,6 +73,8 @@ public enum Embeds {
 				return buildMain();
 			case PHYSICS:
 				return buildPhysics();
+			case MATH:
+				return buildMath();
 			case MECHANICS:
 				return buildMechanics();
 			case THERMAL:
@@ -74,6 +85,10 @@ public enum Embeds {
 				return buildEm();
 			case MODERN:
 				return buildModern();
+			case GEOMETRY:
+				return buildGeometry();
+			case STATS:
+				return buildStats();
 			default:
 				return null;
 		}
@@ -154,6 +169,34 @@ public enum Embeds {
 		eb.addField("Photon Energy", "React with 4", false);
 		eb.addField("Schroedinger's Equation", "React with 5", false);
 		eb.addField("Uncertainty Principle", "React with 6", false);
+		return eb;
+	}
+	
+	private static EmbedBuilder buildGeometry() {
+		EmbedBuilder eb = new EmbedBuilder();
+		eb.setTitle("Geometry:").setColor(Color.pink).setThumbnail(Driver.botAvatarUrl);
+		eb.addField("Sphere Area", "React with 1", false);
+		eb.addField("Sphere Volume", "React with 2", false);
+		eb.addField("Cylinder Volume", "React with 3", false);
+		return eb;
+	}
+	
+	private static EmbedBuilder buildMath(){
+		EmbedBuilder eb = new EmbedBuilder();
+		eb.setTitle("Math:").setColor(Color.RED).setThumbnail(Driver.botAvatarUrl);
+		eb.addField("Geometry", "React with 1", false);
+		eb.addField("Stats", "React with 2", false);
+		eb.addField("Derivatives", "React with 3", false);
+		eb.addField("Integrals", "React with 4", false);
+		return eb;
+	}
+	
+	private static EmbedBuilder buildStats() {
+		EmbedBuilder eb = new EmbedBuilder();
+		eb.setTitle("Stats:").setColor(Color.YELLOW).setThumbnail(Driver.botAvatarUrl);
+		eb.addField("Mean", "React with 1", false);
+		eb.addField("Standard Deviation", "React with 2", false);
+		eb.addField("Correlation Coefficient", "React with 3", false);
 		return eb;
 	}
 }

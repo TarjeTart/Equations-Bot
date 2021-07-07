@@ -14,8 +14,17 @@ public class MessageSave {
 	private User user;
 	private MessageChannel channel;
 	boolean isGuild;
+	boolean didBack;
 	
-	public MessageSave(Embeds prev,Embeds current, Message message, User user, MessageChannel channel) {
+	public boolean isDidBack() {
+		return didBack;
+	}
+
+	public void setDidBack(boolean didBack) {
+		this.didBack = didBack;
+	}
+
+	public MessageSave(Embeds prev,Embeds current, Message message, User user, MessageChannel channel, boolean didBack) {
 		super();
 		this.prev = prev;
 		this.message = message;
@@ -23,6 +32,7 @@ public class MessageSave {
 		this.channel = channel;
 		this.setCurrent(current);
 		isGuild = message.isFromType(ChannelType.TEXT);
+		this.didBack = didBack;
 	}
 
 	public Embeds getPrev() {

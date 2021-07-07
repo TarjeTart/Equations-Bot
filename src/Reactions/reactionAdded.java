@@ -23,8 +23,10 @@ public class reactionAdded {
 		current.getMessage().delete().queue();
 		//send new message
 		Embeds nextEmbed = null;
+		Boolean didBack = false;
 		if(emote.getId().equals(Driver.backArrow)) {
 			nextEmbed = current.getPrev();
+			didBack = true;
 		}else {
 			Map<String,Embeds> map = new HashMap<String,Embeds>();
 			switch(current.getCurrent()) {
@@ -37,10 +39,12 @@ public class reactionAdded {
 					map = Driver.emEmotes;
 					break;
 				case GEOMETRY:
+					map = Driver.geometryEmotes;
 					break;
 				case INTEGRALS:
 					break;
 				case MATH:
+					map = Driver.mathEmotes;
 					break;
 				case MECHANICS:
 					map = Driver.mechanicsEmotes;
@@ -52,6 +56,7 @@ public class reactionAdded {
 					map = Driver.physicsEmotes;
 					break;
 				case STATS:
+					map = Driver.statsEmotes;
 					break;
 				case THERMAL:
 					map = Driver.thermalEmotes;
@@ -70,6 +75,7 @@ public class reactionAdded {
 		Driver.current.setPrev(current.getCurrent());
 		Driver.current.setCurrent(nextEmbed);
 		Driver.current.setMessage(sentMessage);
+		Driver.current.setDidBack(didBack);
 		//add reactions
 		String[] arr = null;
 		switch(nextEmbed) {
@@ -82,10 +88,12 @@ public class reactionAdded {
 				arr = Driver.emEmotesArr;
 				break;
 			case GEOMETRY:
+				arr = Driver.geometryEmotesArr;
 				break;
 			case INTEGRALS:
 				break;
 			case MATH:
+				arr = Driver.mathEmotesArr;
 				break;
 			case MECHANICS:
 				arr = Driver.mechanicsEmotesArr;
@@ -97,6 +105,7 @@ public class reactionAdded {
 				arr = Driver.physicsEmotesArr;
 				break;
 			case STATS:
+				arr = Driver.statsEmotesArr;
 				break;
 			case THERMAL:
 				arr = Driver.thermalEmotesArr;
@@ -107,8 +116,13 @@ public class reactionAdded {
 			default:
 				break;
 		}
+		int count = 0;
 		for(String i : arr) {
-			sentMessage.addReaction(event.getJDA().getGuildById(Driver.botTestingId).getEmoteById(i)).queue();
+			if((count == 0 && Driver.current.isDidBack()) && Driver.current.getCurrent() != Embeds.MAIN) {
+				count++;
+			}else {
+				sentMessage.addReaction(event.getJDA().getGuildById(Driver.botTestingId).getEmoteById(i)).queue();
+			}
 		}
 	}
 	
