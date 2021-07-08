@@ -24,10 +24,14 @@ public class reactionAdded {
 		//send new message
 		Embeds nextEmbed = null;
 		Boolean didBack = false;
+		int level = isLowLevel(emote.getId(), current.getCurrent());
 		if(emote.getId().equals(Driver.backArrow)) {
 			nextEmbed = current.getPrev();
 			didBack = true;
-		}else {
+		}else if(level != -1){
+			event.getChannel().sendMessage(Embeds.getEquation(current.getCurrent(), level).build()).queue();
+			return;
+		}else{
 			Map<String,Embeds> map = new HashMap<String,Embeds>();
 			switch(current.getCurrent()) {
 				case MAIN:
@@ -128,6 +132,23 @@ public class reactionAdded {
 				sentMessage.addReaction(event.getJDA().getGuildById(Driver.botTestingId).getEmoteById(i)).queue();
 			}
 		}
+	}
+	
+	private int isLowLevel(String id, Embeds e) {
+		if(e == Embeds.MAIN || e == Embeds.PHYSICS || e == Embeds.MATH) {
+			return -1;
+		}
+		switch(id) {
+			case "716468511806849067":
+				return 1;
+			default:
+				return -1;
+		}
+		/* || id.equals("716467615056265236")2
+				|| id.equals("716467864584060960")3 || id.equals("716467958838460437")4
+				|| id.equals("716468491359617104")5 || id.equals("861671535433089055")6
+				|| id.equals("862749525432991754")7 || id.equals("862749582983299112")8
+				|| id.equals("862749691233959977")9;*/
 	}
 	
 }

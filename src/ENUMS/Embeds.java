@@ -1,6 +1,10 @@
 package ENUMS;
 
 import java.awt.Color;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+
 import Bot.Driver;
 import net.dv8tion.jda.api.EmbedBuilder;
 
@@ -250,5 +254,36 @@ public enum Embeds {
 		eb.addField("Arcsec(x)", "React with 8", false);
 		eb.addField("Arccsc(x)", "React with 9", false);
 		return eb;
+	}
+	
+	public static EmbedBuilder getEquation(Embeds embed, int emote) {
+		EmbedBuilder eb = new EmbedBuilder();
+		switch(embed) {
+			case DERIVATIVES:
+				break;
+			case EM:
+				break;
+			case GEOMETRY:
+				break;
+			case INTEGRALS:
+				break;
+			case MECHANICS:
+				switch(emote) {
+					case 1:
+						return eb.setImage("https://github.com/TarjeTart/Equations-Bot/blob/main/photos/kinematics.png?raw=true");
+				}
+				break;
+			case MODERN:
+				break;
+			case STATS:
+				break;
+			case THERMAL:
+				break;
+			case WAVESOPTICS:
+				break;
+			default:
+				break;
+		}
+		return null;
 	}
 }

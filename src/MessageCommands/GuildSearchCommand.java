@@ -32,6 +32,8 @@ public class GuildSearchCommand implements Interfaces.Command{
 	@Override
 	public void run() {
 		getInfo();
+		//remove users message
+		event.getMessage().delete().queue();
 		//build and send main message
 		Message sentMessage = channel.sendMessage(Embeds.build(Embeds.MAIN).build()).complete();
 		//save message
