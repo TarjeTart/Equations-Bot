@@ -65,7 +65,25 @@ public enum Embeds {
 	STDDEV,
 	CORRCOE,
 	//derivatives
-	;
+	DSEC,
+	DCOS,
+	DCOT,
+	DARCSIN,
+	DARCCOS,
+	DARCTAN,
+	DARCCOT,
+	DARCSEC,
+	DARCCSC,
+	//integrals
+	ISEC,
+	ICOS,
+	ICOT,
+	IARCSIN,
+	IARCCOS,
+	IARCTAN,
+	IARCCOT,
+	IARCSEC,
+	IARCCSC;
 	
 	public static EmbedBuilder build(Embeds embed) {
 		switch(embed){
@@ -89,6 +107,10 @@ public enum Embeds {
 				return buildGeometry();
 			case STATS:
 				return buildStats();
+			case DERIVATIVES:
+				return buildDerivatives();
+			case INTEGRALS:
+				return buildIntegrals();
 			default:
 				return null;
 		}
@@ -197,6 +219,36 @@ public enum Embeds {
 		eb.addField("Mean", "React with 1", false);
 		eb.addField("Standard Deviation", "React with 2", false);
 		eb.addField("Correlation Coefficient", "React with 3", false);
+		return eb;
+	}
+	
+	private static EmbedBuilder buildDerivatives() {
+		EmbedBuilder eb = new EmbedBuilder();
+		eb.setTitle("Derivatives:").setColor(Color.blue).setThumbnail(Driver.botAvatarUrl);
+		eb.addField("Sec(x)", "React with 1", false);
+		eb.addField("Csc(x)", "React with 2", false);
+		eb.addField("Cot(x)", "React with 3", false);
+		eb.addField("Arcsin(x)", "React with 4", false);
+		eb.addField("Arccos(x)", "React with 5", false);
+		eb.addField("Arctan(x)", "React with 6", false);
+		eb.addField("Arccot(x)", "React with 7", false);
+		eb.addField("Arcsec(x)", "React with 8", false);
+		eb.addField("Arccsc(x)", "React with 9", false);
+		return eb;
+	}
+	
+	private static EmbedBuilder buildIntegrals() {
+		EmbedBuilder eb = new EmbedBuilder();
+		eb.setTitle("Integrals:").setColor(Color.magenta).setThumbnail(Driver.botAvatarUrl);
+		eb.addField("Sec(x)", "React with 1", false);
+		eb.addField("Csc(x)", "React with 2", false);
+		eb.addField("Cot(x)", "React with 3", false);
+		eb.addField("Arcsin(x)", "React with 4", false);
+		eb.addField("Arccos(x)", "React with 5", false);
+		eb.addField("Arctan(x)", "React with 6", false);
+		eb.addField("Arccot(x)", "React with 7", false);
+		eb.addField("Arcsec(x)", "React with 8", false);
+		eb.addField("Arccsc(x)", "React with 9", false);
 		return eb;
 	}
 }

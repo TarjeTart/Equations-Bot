@@ -34,6 +34,7 @@ public class reactionAdded {
 					map = Driver.mainEmotes;
 					break;
 				case DERIVATIVES:
+					map = Driver.derivativeEmotes;
 					break;
 				case EM:
 					map = Driver.emEmotes;
@@ -42,6 +43,7 @@ public class reactionAdded {
 					map = Driver.geometryEmotes;
 					break;
 				case INTEGRALS:
+					map = Driver.integralEmotes;
 					break;
 				case MATH:
 					map = Driver.mathEmotes;
@@ -83,6 +85,7 @@ public class reactionAdded {
 				arr = Driver.mainEmotesArr;
 				break;
 			case DERIVATIVES:
+				arr = Driver.derivativeEmotesArr;
 				break;
 			case EM:
 				arr = Driver.emEmotesArr;
@@ -91,6 +94,7 @@ public class reactionAdded {
 				arr = Driver.geometryEmotesArr;
 				break;
 			case INTEGRALS:
+				arr = Driver.integralEmotesArr;
 				break;
 			case MATH:
 				arr = Driver.mathEmotesArr;

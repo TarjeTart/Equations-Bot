@@ -50,6 +50,10 @@ public class Driver extends ListenerAdapter{
 	public static String[] mathEmotesArr;
 	public static Map<String,Embeds> statsEmotes = new HashMap<String,Embeds>();
 	public static String[] statsEmotesArr;
+	public static Map<String,Embeds> derivativeEmotes = new HashMap<String,Embeds>();
+	public static String[] derivativeEmotesArr;
+	public static Map<String,Embeds> integralEmotes = new HashMap<String,Embeds>();
+	public static String[] integralEmotesArr;
 
 	public static void main(String[] args) {
 
@@ -63,7 +67,8 @@ public class Driver extends ListenerAdapter{
 		mechanicsEmotesArr = mechanicsEmotes(); thermalEmotesArr = thermalEmotes();
 		wavesEmotesArr = wavesEmotes(); emEmotesArr = emEmotes(); modernEmotesArr = modernEmotes();
 		mathEmotesArr = mathEmotes(); geometryEmotesArr = geometryEmotes();
-		statsEmotesArr = statsEmotes();
+		statsEmotesArr = statsEmotes(); derivativeEmotesArr = derivativeEmotes();
+		integralEmotesArr = integralEmotes();
 		
 		//bot maker class
 		jdaMaker = new JdaMaker(token,prefix.toString() + "help");
@@ -71,6 +76,9 @@ public class Driver extends ListenerAdapter{
 		jdaMaker.constructJda();
 		
 		botAvatarUrl = jdaMaker.getJda().getSelfUser().getAvatarUrl();
+		
+		System.out.println("Location var set to " + location);
+		System.out.println("Current version:" + version);
 		
 	}
 	
@@ -203,6 +211,38 @@ public class Driver extends ListenerAdapter{
 		statsEmotes.put("716467615056265236",Embeds.STDDEV);//2
 		statsEmotes.put("716467864584060960",Embeds.CORRCOE);//3
 		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960"};
+		return arr;
+	}
+	
+	private static String[] derivativeEmotes() {
+		derivativeEmotes.put("716468511806849067",Embeds.DSEC);//1
+		derivativeEmotes.put("716467615056265236",Embeds.DCOS);//2
+		derivativeEmotes.put("716467864584060960",Embeds.DCOT);//3
+		derivativeEmotes.put("716467958838460437",Embeds.DARCSIN);//4
+		derivativeEmotes.put("716468491359617104",Embeds.DARCCOS);//5
+		derivativeEmotes.put("861671535433089055",Embeds.DARCTAN);//6
+		derivativeEmotes.put("862749525432991754",Embeds.DARCCOT);//7
+		derivativeEmotes.put("862749582983299112",Embeds.DARCSEC);//8
+		derivativeEmotes.put("862749691233959977",Embeds.DARCCSC);//9
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437","716468491359617104","861671535433089055","862749525432991754",
+                "862749582983299112","862749691233959977"};
+		return arr;
+	}
+	
+	private static String[] integralEmotes() {
+		integralEmotes.put("716468511806849067",Embeds.ISEC);//1
+		integralEmotes.put("716467615056265236",Embeds.ICOS);//2
+		integralEmotes.put("716467864584060960",Embeds.ICOT);//3
+		integralEmotes.put("716467958838460437",Embeds.IARCSIN);//4
+		integralEmotes.put("716468491359617104",Embeds.IARCCOS);//5
+		integralEmotes.put("861671535433089055",Embeds.IARCTAN);//6
+		integralEmotes.put("862749525432991754",Embeds.IARCCOT);//7
+		integralEmotes.put("862749582983299112",Embeds.IARCSEC);//8
+		integralEmotes.put("862749691233959977",Embeds.IARCCSC);//9
+		String[] arr = {backArrow,"716468511806849067","716467615056265236","716467864584060960",
+                "716467958838460437","716468491359617104","861671535433089055","862749525432991754",
+                "862749582983299112","862749691233959977"};
 		return arr;
 	}
 	
